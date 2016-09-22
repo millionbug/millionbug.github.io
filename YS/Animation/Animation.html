@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Animation
+    
+
+
+选取带有序列图的图片
+
+每帧图片高度：
+每帧图片宽度：
+行数
+列数
+
+查看动画帧
+
+
+
+    //var cv = $(&quot;#cv&quot;)[0];
+    var frames = [];
+    var timeHandler = null;
+    function loadImg(fObj){
+        var f = fObj.f">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/YS/Animation/Animation.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Animation
+    
+
+
+选取带有序列图的图片
+
+每帧图片高度：
+每帧图片宽度：
+行数
+列数
+
+查看动画帧
+
+
+
+    //var cv = $(&quot;#cv&quot;)[0];
+    var frames = [];
+    var timeHandler = null;
+    function loadImg(fObj){
+        var f = fObj.f">
+<meta property="og:updated_time" content="2016-09-07T08:31:23.526Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="Animation
+    
+
+
+选取带有序列图的图片
+
+每帧图片高度：
+每帧图片宽度：
+行数
+列数
+
+查看动画帧
+
+
+
+    //var cv = $(&quot;#cv&quot;)[0];
+    var frames = [];
+    var timeHandler = null;
+    function loadImg(fObj){
+        var f = fObj.f">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/YS/Animation/Animation.html" class="article-date">
+  <time datetime="2016-09-07T08:31:23.607Z" itemprop="datePublished">2016-09-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Animation</title>
+    <script src="../jquery.js"></script>
+</head>
+<body>
+选取带有序列图的图片<input type="file" id="fBtn" onchange="loadImg(this)">
+<img src="" id="fImg">
+每帧图片高度：<input id="fWid" value="284">
+每帧图片宽度：<input id="fHie" value="324">
+行数<input id="fRow" value="1">
+列数<input id="fCol" value="10">
+<input type="button" id="cBtn" onclick="createAnimation()" value="生成动画">
+查看动画帧<select id="selFrame" onchage="selFrame(this.value)"></select>
+<input type="button" value="运行动画" onclick="run(this)">
+<canvas id="cv"></canvas>
+<script>
+    //var cv = $("#cv")[0];
+    var frames = [];
+    var timeHandler = null;
+    function loadImg(fObj){
+        var f = fObj.files[0];
+        console.log(f);
+        if(!f){
+            console.log("请选择图片文件");
+        }else {
+            //创建文件读取对象
+            var r = new FileReader();
+            //以DataURL方式读取
+            r.onload = function(){
+                $("#fImg").attr("src", this.result);
+                delete r;
+            }
+            r.readAsDataURL(f);
+        }
+        //停止动画
+        if(timeHandler){
+            clearInterval(timeHandler);
+        }
+        frames = [];
+    }
+    //生成动画
+    function createAnimation(){
+        if($("#fImg").attr("src")==""){
+            console.log("请先选择图片文件");
+        }else{
+            //获取每帧高度
+            var w = Number($("#fWid").val())||32,
+                h = Number($("#fHei").val())||32,
+                r = Number($("#fRow").val())||1,
+                c = Number($("#fCol").val())||1;
+            frames = [];
+            cv.width = w;
+            cv.height = h;
+            //清空祯选择
+            $("#selFrame").empty();
+            //生成每帧图片在图中的坐标
+            var fCount = 0;
+            for(var i = 0; i<r; i++){
+                for(var j = 0; j<c; j++){
+                    //计算每帧图片的起始坐标,x,y
+                    var x = j*w,
+                        y = i*h;
+                    //保存每帧图片的其实坐标,x,y和高度
+                    frames.push([x,y,w,h]);
+                    $("#selFrame").append("<option value='"+fCount+"'>第"+fCount+"帧</option>");
+                    fCount++;
+                }
+            }
+        }
+    }
+    //选择动画帧,把当前帧画到画布上
+    function selFrame(idx){
+        if(frames.length==0) return;
+        console.log(cv);
+        var f = frames[idx],
+                ctx = cv.getContext("2d");
+        ctx.clearReact(0, 0, cv.width, cv.height);
+        ctx.drawImage(fImg, f[0], f[1], f[2], f[3], 0, 0, cv.width, cv.height);
+    }
+    //运行动画
+    function run(btn){
+        if(frames.length==0)return;
+        console.log(cv);
+        var ctx = cv.getContext("2d");
+        if(btn.value=="运行动画"){
+            //设置动画每一毫秒运行一帧
+            var fCount = frames.length,
+                    fIdx = 0;
+            timeHandler = setInterval(function(){
+                var f = frames[fIdx];
+                ctx.clearRect(0,0,cv.width,cv.height);
+                ctx.drawImage(fImg, f[0], f[1], f[2], f[3], 0, 0, cv.width, cv.height);
+                fIdx=(++fIdx)%fCount;
+            }, 100);
+            btn.value="停止动画";
+        }else{
+            clearInterval(timeHandler);
+            btn.value = "运行动画";
+        }
+    }
+</script>
+</body>
+</html>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/YS/Animation/Animation.html" data-id="cite0qdo8000nzcq3g74nleqq" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/博客/" style="font-size: 10px;">博客</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/09/22/保留最大整数-md/">保留最大整数.md</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/22/保留最大数/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/21/算法法的练习/">算法的练习.md</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/09/YSengine/">YSengine</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/30/你好世界/">hello world</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

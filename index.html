@@ -51,9 +51,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -63,6 +63,79 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-保留最大整数-md" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/22/保留最大整数-md/" class="article-date">
+  <time datetime="2016-09-22T03:48:20.000Z" itemprop="datePublished">2016-09-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/22/保留最大整数-md/">保留最大整数.md</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##首先我要说一下，这个题真的是我笔试的时候做出来了的。但是浏览器bug，关掉电脑，今天打开之后完美运行！很累，再见offer！</p>
+<p>一楼爆照—&gt;<br><img src="images/max-number.png"></p>
+<blockquote>
+<p>输入分两行一行为n, 表示要删除的位数，一行为大整数。输出，大整数删除n位数字之后其他位置不变的情况下最大的数字。</p>
+</blockquote>
+<h4 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h4><blockquote>
+<p>1<br>325</p>
+</blockquote>
+<h4 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h4><blockquote>
+<p>35</p>
+</blockquote>
+<h4 id="解析："><a href="#解析：" class="headerlink" title="解析："></a>解析：</h4>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/09/22/保留最大整数-md/" data-id="cite0qdki000czcq3rhwk4lom" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-保留最大数" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/22/保留最大数/" class="article-date">
+  <time datetime="2016-09-22T03:46:02.691Z" itemprop="datePublished">2016-09-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/09/22/保留最大数/" data-id="cite0qdey0000zcq3jva5n46d" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-算法法的练习" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -105,13 +178,16 @@
 <p>今天晚上因为时间原因呢，就只好拖上一个不完整的结果出来了！<br>解决方法：将数据从后面依次入栈，然后从栈顶根据栈顶数值的大小进行出栈操作。如果能够完成出栈就行了。<br>首先是用到js的数组模拟的栈，下面是对数组进行模拟出栈操作的函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function Pop(arr)&#123;</span><br><span class="line">       var len = arr.length;                                               </span><br><span class="line">       var j = 0;                                             </span><br><span class="line">       for(var i = 0; i &lt; len; )&#123;                   </span><br><span class="line">           arr[i] = parseInt(arr[i]);               </span><br><span class="line">           if(arr[i]!==0)&#123;              </span><br><span class="line">               i = i + arr[i];            </span><br><span class="line">               j++;          </span><br><span class="line">           &#125;else&#123;             </span><br><span class="line">               return -1;            </span><br><span class="line">           &#125;           </span><br><span class="line">       &#125;            </span><br><span class="line">       if(i&gt;=len)&#123;      </span><br><span class="line">           return j;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
 <p>   上面的函数，只能执行每次都是按照弹簧最大弹力来计算。有的时候数据例如</p>
 <blockquote>
-<p>2 3 0 1 1 1<br>   这个时候如果第一次只跳一格时可以通过的。但是上面的算法无法通过。明天再说咯！</p>
+<p>2 3 0 1 1 1</p>
 </blockquote>
+<p>   这个时候如果第一次只跳一格时可以通过的。但是上面的算法无法通过。明天再说咯！</p>
+<hr>
+<p>转眼就到了明天了呢！很激动，妈蛋这个题是真不会，没有做出来很羞愧。我们进入下一道算法-&gt;</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/21/算法法的练习/" data-id="citd343pf0003ioq3xj14iurc" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/09/21/算法法的练习/" data-id="cite0qdl6000fzcq3x99pw44z" class="article-share-link">Share</a>
       
       
     </footer>
@@ -148,7 +224,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/09/YSengine/" data-id="citd343oc0000ioq3crqymndz" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/09/09/YSengine/" data-id="cite0qdjv0008zcq3ncitfk3w" class="article-share-link">Share</a>
       
       
     </footer>
@@ -185,7 +261,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/03/30/你好世界/" data-id="citd343p60002ioq3posww14b" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/03/30/你好世界/" data-id="cite0qdkc000azcq3dapf2bqh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li></ul>
@@ -232,7 +308,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/03/26/hello-world/" data-id="citd343ox0001ioq3oet8otac" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/03/26/hello-world/" data-id="cite0qdn6000jzcq3040v8qcz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -252,7 +328,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Mot-clés</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a></li></ul>
     </div>
@@ -262,7 +338,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
       <a href="/tags/博客/" style="font-size: 10px;">博客</a>
     </div>
@@ -281,9 +357,17 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/09/22/保留最大整数-md/">保留最大整数.md</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/22/保留最大数/">(no title)</a>
+          </li>
         
           <li>
             <a href="/2016/09/21/算法法的练习/">算法的练习.md</a>
@@ -295,10 +379,6 @@
         
           <li>
             <a href="/2016/03/30/你好世界/">hello world</a>
-          </li>
-        
-          <li>
-            <a href="/2016/03/26/hello-world/">Hello World</a>
           </li>
         
       </ul>
@@ -314,7 +394,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 John Doe<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>

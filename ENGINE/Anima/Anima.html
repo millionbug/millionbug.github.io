@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Anima</title>
+</head>
+<body>
+    <img id="mr" src="../images/mr.png"/>
+    <input type="button" id="btnStart" value="开始" />
+    动画<select  type="button" id="changeAnimation">
+            <option value="run" >跑步</option>
+            <option value="jump" >跳跃</option>
+            <option value="crouch" >蹲下</option>
+        </select>
+    速度<select id="sp" >
+        <option value="0.25">X0.25</option>
+        <option value="1.5">X1.5</option>
+        <option value="2">X2</option>
+    </select>
+    <canvas id="mycanvas" width="64" height="64"></canvas>
+<script>
+//    window.onload = function(){
+//                console.log("hello world");
+//                var cv = document.getElementById("mycanvas").getContext("2d");
+//                var img = document.getElementById("mr");
+//                cv.drawImage(img,0,0,32,32,0,0,32,32);
+//            };
+</script>
+    <script data-main="game" src="../require.js"></script>
+</body>
+</html>

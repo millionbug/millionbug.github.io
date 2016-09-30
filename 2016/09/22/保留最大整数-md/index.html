@@ -16,7 +16,8 @@
 样例输出
 35
 
-解析：Mario">
+解析：
+哟今天下午什么都不想干，想起还有一个题没有做出来，嗯。灵感乍泄！我们举个例子5 4">
 <meta property="og:type" content="article">
 <meta property="og:title" content="保留最大整数.md">
 <meta property="og:url" content="http://yoursite.com/2016/09/22/保留最大整数-md/index.html">
@@ -32,9 +33,10 @@
 样例输出
 35
 
-解析：Mario">
+解析：
+哟今天下午什么都不想干，想起还有一个题没有做出来，嗯。灵感乍泄！我们举个例子5 4">
 <meta property="og:image" content="http://yoursite.com/images/max-number.png">
-<meta property="og:updated_time" content="2016-09-22T08:14:10.109Z">
+<meta property="og:updated_time" content="2016-09-30T15:09:00.141Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="保留最大整数.md">
 <meta name="twitter:description" content="##首先我要说一下，这个题真的是我笔试的时候做出来了的。但是浏览器bug，关掉电脑，今天打开之后完美运行！很累，再见offer！
@@ -48,7 +50,8 @@
 样例输出
 35
 
-解析：Mario">
+解析：
+哟今天下午什么都不想干，想起还有一个题没有做出来，嗯。灵感乍泄！我们举个例子5 4">
 <meta name="twitter:image" content="http://yoursite.com/images/max-number.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -89,7 +92,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -131,12 +134,18 @@
 <h4 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h4><blockquote>
 <p>35</p>
 </blockquote>
-<h4 id="解析："><a href="#解析：" class="headerlink" title="解析："></a>解析：</h4><p><a href="../YS/Mario/AnimaMario.html">Mario</a></p>
+<h4 id="解析："><a href="#解析：" class="headerlink" title="解析："></a>解析：</h4><blockquote>
+<p>哟今天下午什么都不想干，想起还有一个题没有做出来，嗯。灵感乍泄！<br>我们举个例子5 4 3 2 1 6 5 4。我们从左到右查看，5 4 3 2<br>1是降序前面肯定不能去掉。1&lt;6,1去掉之后就可以将6提前一位。然后再从右开始<br>5 4 3 2 6 5 4中2&lt;6去掉2。如果要去掉五个数字的话，去掉了4 3 2 1<br>之后，就剩下了5 6 5 4，再发现5 &lt; 6，去掉5就好了。大概就是这样下面贴上源码</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">ch</span>(<span class="params">str, n</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> str = str;</span><br><span class="line">    <span class="keyword">var</span> len = str.toString().length;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = len <span class="number">-1</span>; i&gt;=<span class="number">0</span>; i--)&#123;</span><br><span class="line">        arr[i] = str%<span class="number">10</span>;</span><br><span class="line">        str = (str - arr[i])/<span class="number">10</span>;  <span class="comment">//一直到这里都是为了处理输入的整数为数组</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> arr = str;</span><br><span class="line">    <span class="keyword">var</span> len = str.length;</span><br><span class="line">    arr = den(arr,n);   <span class="comment">//这里才是正经的对数组删除相应的n位的数字</span></span><br><span class="line">    <span class="keyword">var</span> S = arr.join(<span class="string">""</span>);</span><br><span class="line">    S = <span class="built_in">parseInt</span>(S);</span><br><span class="line">    <span class="built_in">console</span>.log(S);</span><br><span class="line">    <span class="keyword">return</span> S;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">den</span>(<span class="params">arr,n</span>)</span>&#123;   <span class="comment">//每次从数组中删除一个数字得到当前最大数，并返回删除后的数组</span></span><br><span class="line">      <span class="keyword">var</span> len = arr.length;</span><br><span class="line">      <span class="keyword">var</span> n = n;</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">          arr = de(arr);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> arr;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">de</span>(<span class="params">arr</span>)</span>&#123;   <span class="comment">//每次删除时的具体逻辑，使用了splice函数，真的是相当便利呢。请原谅我的怠惰</span></span><br><span class="line">     <span class="keyword">var</span> len = arr.length;</span><br><span class="line">     <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i&lt; len; i++)&#123;</span><br><span class="line">         <span class="keyword">if</span>(arr[i] &gt;= arr[i+<span class="number">1</span>])&#123;</span><br><span class="line">             <span class="keyword">continue</span>;</span><br><span class="line">         &#125;<span class="keyword">else</span> <span class="keyword">if</span>(arr[i] &lt; arr[i+<span class="number">1</span>])&#123;</span><br><span class="line">             arr.splice(i, <span class="number">1</span>);</span><br><span class="line">             <span class="keyword">break</span>;</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="keyword">if</span>(i == len)&#123;</span><br><span class="line">             arr.splice(i<span class="number">-1</span>, <span class="number">1</span>);</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     arr.length = len - <span class="number">1</span>;</span><br><span class="line">     <span class="keyword">return</span> arr;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="上面就是最近的那个算法，下面是另外安利一个我的一个做的动画的小demo。做完了之后全部推上去。"><a href="#上面就是最近的那个算法，下面是另外安利一个我的一个做的动画的小demo。做完了之后全部推上去。" class="headerlink" title="上面就是最近的那个算法，下面是另外安利一个我的一个做的动画的小demo。做完了之后全部推上去。"></a>上面就是最近的那个算法，下面是另外安利一个我的一个做的动画的小demo。做完了之后全部推上去。</h3><p><a href="../YS/Mario/AnimaMario.html">Mario</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/22/保留最大整数-md/" data-id="cite3um34000bd4q3qlg2fwhn" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2016/09/22/保留最大整数-md/" data-id="citpwnqaz0008zcq3h2yziy1e" class="article-share-link">Share</a>
       
       
     </footer>
@@ -147,7 +156,7 @@
   
   
     <a href="/2016/09/22/保留最大数/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Ouder</strong>
+      <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title"></div>
     </a>
   
@@ -165,7 +174,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Labels</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a></li></ul>
     </div>
@@ -184,7 +193,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archieven</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li></ul>
     </div>
@@ -194,7 +203,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recente berichten</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         

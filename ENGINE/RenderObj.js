@@ -52,7 +52,7 @@
             this.x += this.dx;
             this.y += this.dy;
         };
-        //旋转deg度
+        //旋转deg度+
         RenderObj.prototype.rotate = function (deg) {
             this.deg = deg;
         };

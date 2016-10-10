@@ -15,7 +15,7 @@ export class Game{
     //保存所有监听器
     listeners: _appEventListener[] = [];
     //添加监听器
-    addLitener(ln: _appEventListener){
+    addListener(ln: _appEventListener){
         this.listeners.push(ln);
     }
     //删除所有监听器

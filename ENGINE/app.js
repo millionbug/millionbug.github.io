@@ -21,7 +21,7 @@
             this.paused = false;
         }
         //添加监听器
-        Game.prototype.addLitener = function (ln) {
+        Game.prototype.addListener = function (ln) {
             this.listeners.push(ln);
         };
         //删除所有监听器

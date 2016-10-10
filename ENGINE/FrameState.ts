@@ -41,4 +41,93 @@ export class FrameStateClass{
         this.currTime = fTime;
     }
 }
-export let FrameState = new FrameStateClass();
+
+
+
+export class key{
+        A=65;
+        B=66;
+        C=67;
+        D=68;
+        E=69;
+        F=70;
+        G=71;
+        H=72;
+        I=73;
+        J=74;
+        K=75;
+        L=76;
+        M=77;
+        N=78;
+        O=79;
+        P=80;
+        Q=81;
+        R=82;
+        S=83;
+        T=84;
+        U=85;
+        V=86;
+        W=87;
+        X=89;
+        Y=90;
+        Z=91;
+        N0=48;
+        N1=49;
+        N2=50;
+        N3=51;
+        N4=52;
+        N5=53;
+        N6=54;
+        N7=55;
+        N8=56;
+        N9=57;
+        LEFT=37;
+        RIGHT=39;
+        UP=38;
+        DOWN=40;
+        ENTER=13;
+        SPACE=32;
+        TAB=9;
+        SHIFT=16;
+        ALT=18;
+        CTRL=17;
+        //记录键盘状态
+        states=new Array(255);
+        //设置是否可用
+        setEnabled(flag){
+            var self = this;
+            if(flag){
+                var st = this.states;
+                this.clearKeyStates();
+                document.onkeydown = function(e){
+                    st[e.keyCode] = 1;
+                }
+                document.onkeyup = function(e){
+                    st[e.keyCode] = 0;
+                }
+            }else{
+                document.onkeydown = null;
+                document.onkeyup = null;
+            }
+        }
+        //判断是否按键
+        pressed(key){
+            return this.states[key];
+        }
+        //复位所有状态
+        clearKeyStates(){
+            for(var i = 0; i<255; i++){
+                this.states[i] = 0;
+            }
+        }
+    }
+
+let FrameState = new FrameStateClass();
+    //初始化
+let Key = new key();
+Key.setEnabled(true);
+
+export {
+    Key,FrameState
+}
+

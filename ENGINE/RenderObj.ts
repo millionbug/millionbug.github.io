@@ -48,7 +48,7 @@ export class RenderObj{
         this.x += this.dx;
         this.y += this.dy;
     }
-    //旋转deg度
+    //旋转deg度+
     rotate(deg:number){
         this.deg = deg;
     }

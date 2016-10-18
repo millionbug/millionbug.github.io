@@ -74,7 +74,7 @@
             var dt = "json";
             var obj = {
                 url: url,
-                type: "post",
+                type: "get",
                 dataType: dt,
                 success: function (data) {
                     console.log(data);

@@ -46,7 +46,7 @@ var __extends = (this && this.__extends) || function (d, b) {
             this.anims.remove(name);
         };
         //按名称设定当前动作
-        Sprite.prototype.setAnim = function (name) {
+        Sprite.prototype.setCAnim = function (name) {
             this.animsCtrl.setCurrent(name);
         };
         //设置动画的速度

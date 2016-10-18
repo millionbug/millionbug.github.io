@@ -1,150 +1,68 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Title
-
-
-
-    var arr = [];
-    var x = ch(24153,2);
-    function ch(str, n){
-        var str = str;
-        var len = str.toString().length;
-        for(var i = len -1; i&amp;gt;=0; i--){">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/YS/int/int.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Title
-
-
-
-    var arr = [];
-    var x = ch(24153,2);
-    function ch(str, n){
-        var str = str;
-        var len = str.toString().length;
-        for(var i = len -1; i&amp;gt;=0; i--){">
-<meta property="og:updated_time" content="2016-09-22T05:36:38.376Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="Title
-
-
-
-    var arr = [];
-    var x = ch(24153,2);
-    function ch(str, n){
-        var str = str;
-        var len = str.toString().length;
-        for(var i = len -1; i&amp;gt;=0; i--){">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-  
-
-</head>
-
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/YS/int/int.html" class="article-date">
-  <time datetime="2016-09-22T05:36:38.431Z" itemprop="datePublished">2016-09-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+输入字符串数组格式为1,2,3,4,5,6,注意输入时使用英文输入：<input type="text" id="ip" />
+输入数字n：<input type="text" id="nn"/>
+<button onclick="clickthis()">开始运算</button>
+输出结果：<div id="di"></div>
 <script>
-    var arr = [];
-    var x = ch(24153,2);
+    function clickthis(){
+        var ip = document.getElementById("ip");
+        var nn = document.getElementById("nn");
+        var arr = ip.value.split(",");
+        var n = parseInt(nn.value);
+        var s = ch(arr, n);
+        document.getElementById("di").innerHTML = s;
+    }
+
     function ch(str, n){
-        var str = str;
-        var len = str.toString().length;
+//        var str = str;
+//        var len = str.toString().length;
+//        for(var i = len -1; i>=0; i--){
+//            arr[i] = str%10;
+//            str = (str - arr[i])/10;
+//        }
+        var arr = str;
+        var len = str.length;
         for(var i = len -1; i>=0; i--){
-            arr[i] = str%10;
-            str = (str - arr[i])/10;
+            arr[i] = parseInt(arr[i]);
         }
         arr = den(arr,n);
         var S = arr.join("");
         S = parseInt(S);
         console.log(S);
+        return S;
     }
     function den(arr,n){
-        for(var i = 0; i<n; i++){
-            if(arr[0]>arr[1]){
-                arr = de(arr,1);
-            }
-//            else {
-//                arr = de(arr,0);
-//            }
+        var len = arr.length;
+        var n = n;
+        for(var i = 0; i < n; i++){
+            arr = de(arr);
         }
         return arr;
     }
-    function de(arr,x){
+    function de(arr){
         var len = arr.length;
-        for(var i = x; i< len; i++){
-            arr[i] = arr[i+1];
+        for(var i = 0; i< len; i++){
+            if(arr[i] >= arr[i+1]){
+                continue;
+            }else if(arr[i] < arr[i+1]){
+                arr.splice(i, 1);
+                break;
+            }
+            if(i == len){
+                arr.splice(i-1, 1);
+            }
         }
         arr.length = len - 1;
         return arr;
     }
 
-
+//1,2,3,4,5,6
 //   var j = 0;   这个后面看了真的做不出来我去
 //   function Pop(arr){
 //       var len = arr.length;
@@ -208,118 +126,3 @@
 
 
 
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/YS/int/int.html" data-id="ciu4cbhnh000s98q3z03ov9d4" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-    
-  
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/博客/" style="font-size: 10px;">博客</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2016/09/22/保留最大整数-md/">保留最大整数.md</a>
-          </li>
-        
-          <li>
-            <a href="/2016/09/22/保留最大数/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2016/09/21/算法法的练习/">算法的练习.md</a>
-          </li>
-        
-          <li>
-            <a href="/2016/09/09/YSengine/">YSengine</a>
-          </li>
-        
-          <li>
-            <a href="/2016/03/30/你好世界/">hello world</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2016 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-  </div>
-</body>
-</html>

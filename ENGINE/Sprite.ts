@@ -35,7 +35,7 @@ export class Sprite extends RenderObj {
         this.anims.remove(name);
     }
     //按名称设定当前动作
-    setAnim(name:string){
+    setCAnim(name:string){
         this.animsCtrl.setCurrent(name);
     }
     //设置动画的速度

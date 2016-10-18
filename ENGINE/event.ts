@@ -24,3 +24,17 @@ export class  _appEventListener implements _EventListener{
         }
     }
 }
+
+export class event{
+    src;
+    obj;
+    method;
+    constructor(src, obj, method){
+        this.src = src;
+        this.obj = obj;
+        this.method = method;
+    }
+    exec(){
+        this.method&&this.method.call(this.obj, this.src);
+    }
+}

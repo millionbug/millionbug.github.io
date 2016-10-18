@@ -65,6 +65,14 @@ export class scene{
     removeRObjByName(name: string){
         if(this.nameRObjs[name]){
             this.nameRObjs[name].canRemove = true;
+            //现在我们需要直接删除掉那个元素
+            delete this.nameRObjs[name];
+            for(var i = 0,len = this.rObjs.length; i<len; i++){
+                if(this.rObjs[i].name === name){
+                    this.rObjs.splice(i,1);
+                    break;
+                }
+            }
         }
     }
 
@@ -107,13 +115,15 @@ export class scene{
     }
     setColor(color:string):void{
         this.color = color||this.color;
-        this.holder.css("color",this.color);
+        this.holder.css("background-color",this.color);
     }
     update():void{
         // alert("scene.update,ok");
         //for循环更新所有精灵
         for(let i=0,len=this.rObjs.length; i<len; i++){
-            this.rObjs[i].update();
+            if(this.rObjs[i]){
+                this.rObjs[i].update();
+            }
         }
     }
     render():void{

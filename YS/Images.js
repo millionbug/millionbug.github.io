@@ -16,7 +16,7 @@
     "use strict";
     var Images = (function () {
         function Images() {
-            this.ClassName = "images";
+            this.ClassName = "image";
         }
         Images.prototype.load = function (name, url, loadedFN, selfThis) {
             var img = new Image();

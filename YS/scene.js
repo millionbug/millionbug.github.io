@@ -30,9 +30,9 @@
             this.color = arg.color;
             this.w = arg.w || 320;
             this.h = arg.h || 200;
-            this.holder = $("<div id="sc_" + this.name + "" style="position:absolute;overflow:hidden;left:0px;top:0px"> </div>");
+            this.holder = $("<div id='sc_" + this.name + "'style='position:absolute;overflow:hidden;left:0px;top:0px'> </div>");
             //绑定的canvas元素，以后的精灵都在这个canvas上进行绘制
-            this.cvs = $("<canvas id="cv_" + this.name + "" style="z-index:-1;position:absolute;left:0px;top:0px"> </canvas>");
+            this.cvs = $("<canvas id='cv_" + this.name + "'style='z-index:-1;position:absolute;left:0px;top:0px'> </canvas>");
             this.ctx = this.cvs[0].getContext("2d");
             this.setPos();
             this.setSize();
@@ -62,6 +62,14 @@
         scene.prototype.removeRObjByName = function (name) {
             if (this.nameRObjs[name]) {
                 this.nameRObjs[name].canRemove = true;
+                //现在我们需要直接删除掉那个元素
+                delete this.nameRObjs[name];
+                for (var i = 0, len = this.rObjs.length; i < len; i++) {
+                    if (this.rObjs[i].name === name) {
+                        this.rObjs.splice(i, 1);
+                        break;
+                    }
+                }
             }
         };
         //删除所有可移除标记的渲染对象
@@ -103,13 +111,15 @@
         };
         scene.prototype.setColor = function (color) {
             this.color = color || this.color;
-            this.holder.css("color", this.color);
+            this.holder.css("background-color", this.color);
         };
         scene.prototype.update = function () {
             // alert("scene.update,ok");
             //for循环更新所有精灵
             for (var i = 0, len = this.rObjs.length; i < len; i++) {
-                this.rObjs[i].update();
+                if (this.rObjs[i]) {
+                    this.rObjs[i].update();
+                }
             }
         };
         scene.prototype.render = function () {

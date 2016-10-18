@@ -5,7 +5,7 @@ import {ClassFactory} from "../ClassFactory";
 import {Sprite} from "../Sprite";
 import {Game} from "../app";
 import {Frame} from "../Frame";
-class Mario extends Sprite{
+export class Mario extends Sprite{
     update(){
         var w = this.owner.w;
         let h = this.owner.h;
@@ -51,9 +51,9 @@ function initRenderObj(sc){
     for(var i = 0; i<30; i++){
         var mr = sc.createRObj("Mario","mr");
         //设置随机位置
-        mr.moveTo(parseInt(Math.random()*400),parseInt(Math.random()*400));
+        mr.moveTo(Math.floor(Math.random()*400),Math.floor(Math.random()*400));
         //设置随机速度为0~3
-        mr.dx = parseInt(Math.random()*3+1);
+        mr.dx = Math.floor(Math.random()*3+1);   //可以使用Math.floor，如果使用parseInt的话ws会报错
         mr.setAnimSpeed(2*Math.random());
         mr.w = mr.h = 64;
         mr.setAnims(anims, "run");

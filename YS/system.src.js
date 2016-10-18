@@ -431,7 +431,7 @@ function logloads(loads) {
       // 15.2.4.5.3 InstantiateSucceeded
       .then(function(instantiateResult) {
         if (instantiateResult === undefined) {
-          load.address = load.address || '<anonymous module="" '="" +="" ++anoncnt="">';
+          load.address = load.address || '<Anonymous Module ' + ++anonCnt + '>';
 
           // instead of load.kind, use load.isDeclarative
           load.isDeclarative = true;
@@ -5037,4 +5037,4 @@ else {
 }
 
 
-})();</script></anonymous>
+})();

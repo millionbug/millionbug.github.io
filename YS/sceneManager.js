@@ -58,7 +58,39 @@
         };
         //交换场景位置
         sceneManager.prototype.swap = function (from, to) {
-            if (from >= 0 && from <= 1="" this.scenes.length="" -="" &&="" to="">= 0 && to <= this.scenes.length="" -="" 1)="" {="" var="" sc="this.scenes[from];" this.scenes[from]="this.scenes[to];" this.scenes[to]="sc;" this.sortsceneidx();="" }="" };="" 获取某个场景的索引="" scenemanager.prototype.getidx="function" (scene)="" return="" scene.holder.css("z-index");="" 把某个场景移动到最顶部="" scenemanager.prototype.bringtotop="function" idx="this.getIdx(scene);" if="" (idx="" !="this.scenes.length" this.scenes.splice(idx,="" 1);="" 删除，替换，插入="" this.scenes[this.scenes.length]="scene;" 把某个场景移动到最底部="" scenemanager.prototype.bringtolast="function" this.scenes.splice(0,="" 0,="" scene);="" 场景后移="" scenemanager.prototype.back="function"> 0) {
+            if (from >= 0 && from <= this.scenes.length - 1 && to >= 0 && to <= this.scenes.length - 1) {
+                var sc = this.scenes[from];
+                this.scenes[from] = this.scenes[to];
+                this.scenes[to] = sc;
+                this.sortSceneIdx();
+            }
+        };
+        //获取某个场景的索引
+        sceneManager.prototype.getIdx = function (scene) {
+            return scene.holder.css("z-index");
+        };
+        //把某个场景移动到最顶部
+        sceneManager.prototype.bringToTop = function (scene) {
+            var idx = this.getIdx(scene);
+            if (idx != this.scenes.length - 1) {
+                this.scenes.splice(idx, 1); //删除，替换，插入
+                this.scenes[this.scenes.length] = scene;
+                this.sortSceneIdx();
+            }
+        };
+        //把某个场景移动到最底部
+        sceneManager.prototype.bringToLast = function (scene) {
+            var idx = this.getIdx(scene);
+            if (idx != 0) {
+                this.scenes.splice(idx, 1);
+                this.scenes.splice(0, 0, scene);
+                this.sortSceneIdx();
+            }
+        };
+        //场景后移
+        sceneManager.prototype.back = function (scene) {
+            var idx = this.getIdx(scene);
+            if (idx > 0) {
                 this.swap(idx, idx - 1);
             }
         };
@@ -89,4 +121,4 @@
     }());
     exports.sceneManager = sceneManager;
 });
-//# sourceMappingURL=sceneManager.js.map</=></=>
+//# sourceMappingURL=sceneManager.js.map

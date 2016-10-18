@@ -1,1 +1,7 @@
-{"compilerOptions":{"target":"es3","module":"umd","sourceMap":true}}
+{
+  "compilerOptions": {
+    "target": "es3",
+    "module": "umd",
+    "sourceMap": true
+  }
+}

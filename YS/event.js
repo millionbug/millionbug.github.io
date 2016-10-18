@@ -1,8 +1,3 @@
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
 (function (factory) {
     if (typeof module === 'object' && typeof module.exports === 'object') {
         var v = factory(require, exports); if (v !== undefined) module.exports = v;
@@ -12,27 +7,11 @@ var __extends = (this && this.__extends) || function (d, b) {
     }
 })(function (require, exports) {
     "use strict";
-    /**
-     * Created by YangSir on 2016/8/26.
-     */
-    var _EventListener = (function () {
-        function _EventListener() {
-        }
-        _EventListener.prototype.onBeforeRender = function () {
-            return true;
-        };
-        ;
-        _EventListener.prototype.onAfterRender = function () {
-            return true;
-        };
-        return _EventListener;
-    }());
-    exports._EventListener = _EventListener;
-    var _appEventListener = (function (_super) {
-        __extends(_appEventListener, _super);
+    ;
+    var _appEventListener = (function () {
         function _appEventListener(ln) {
             if (ln) {
-                _super.call(this);
+                //super();
                 this.enabled = true;
                 this.onBeforeRender = ln["onBeforeRender"] || this.onBeforeRender;
                 this.onAfterRender = ln["onAfterRender"] || this.onAfterRender;
@@ -47,7 +26,19 @@ var __extends = (this && this.__extends) || function (d, b) {
             return true;
         };
         return _appEventListener;
-    }(_EventListener));
+    }());
     exports._appEventListener = _appEventListener;
+    var event = (function () {
+        function event(src, obj, method) {
+            this.src = src;
+            this.obj = obj;
+            this.method = method;
+        }
+        event.prototype.exec = function () {
+            this.method && this.method.call(this.obj, this.src);
+        };
+        return event;
+    }());
+    exports.event = event;
 });
 //# sourceMappingURL=event.js.map

@@ -87,7 +87,7 @@ export class ResUtil{
             var dt = "json";
             var obj = {
                 url: url,
-                type: "post",
+                type: "get",
                 datatype: dt,
                 success: function(data){
                     loadFN(data);

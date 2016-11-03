@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>蛇形矩陣 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="大家好，至於説好的每天一道算法題呢？是有原因的，之前每天跑跑跑找工作，極度消耗精力的。現在決定冷靜一下，練一下算法，復習一下計算機網絡，操作系統。感受一下大四生活呢。今天為大家帶來的是蛇形矩陣，大概描述一下就是這樣的，就是將下面這個數組，然後輸出：
+
+1 2 3 4 5 6 7 8 9 10 11 11 13 14 15 161 2 3 4 5 6 7 8 9 10 11 12 13 14 15">
+<meta property="og:type" content="article">
+<meta property="og:title" content="蛇形矩陣">
+<meta property="og:url" content="http://yoursite.com/2016/11/02/蛇形矩陣/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="大家好，至於説好的每天一道算法題呢？是有原因的，之前每天跑跑跑找工作，極度消耗精力的。現在決定冷靜一下，練一下算法，復習一下計算機網絡，操作系統。感受一下大四生活呢。今天為大家帶來的是蛇形矩陣，大概描述一下就是這樣的，就是將下面這個數組，然後輸出：
+
+1 2 3 4 5 6 7 8 9 10 11 11 13 14 15 161 2 3 4 5 6 7 8 9 10 11 12 13 14 15">
+<meta property="og:image" content="http://yoursite.com/images/snake1.png">
+<meta property="og:image" content="http://yoursite.com/images/snake2.png">
+<meta property="og:updated_time" content="2016-11-03T05:11:44.531Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="蛇形矩陣">
+<meta name="twitter:description" content="大家好，至於説好的每天一道算法題呢？是有原因的，之前每天跑跑跑找工作，極度消耗精力的。現在決定冷靜一下，練一下算法，復習一下計算機網絡，操作系統。感受一下大四生活呢。今天為大家帶來的是蛇形矩陣，大概描述一下就是這樣的，就是將下面這個數組，然後輸出：
+
+1 2 3 4 5 6 7 8 9 10 11 11 13 14 15 161 2 3 4 5 6 7 8 9 10 11 12 13 14 15">
+<meta name="twitter:image" content="http://yoursite.com/images/snake1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-蛇形矩陣" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/02/蛇形矩陣/" class="article-date">
+  <time datetime="2016-11-02T09:33:21.000Z" itemprop="datePublished">2016-11-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      蛇形矩陣
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>大家好，至於説好的每天一道算法題呢？是有原因的，之前每天跑跑跑找工作，極度消耗精力的。現在決定冷靜一下，練一下算法，復習一下計算機網絡，操作系統。感受一下大四生活呢。<br>今天為大家帶來的是蛇形矩陣，大概描述一下就是這樣的，就是將下面這個數組，然後輸出：</p>
+<blockquote>
+<p>1 2 3 4 5 6 7 8 9 10 11 11 13 14 15 16<br><img src="/images/snake1.png"><br>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15<br><img src="/images/snake2.png"></p>
+</blockquote>
+<p><strong>對了我使用的是typescript</strong><br>下面貼上代碼吧，如果有時間就再天上注釋<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">cont</span></span>&#123;</span><br><span class="line">    flag:number = <span class="number">0</span>;</span><br><span class="line">    nti:number;</span><br><span class="line">    ntj:number;</span><br><span class="line">    xy;</span><br><span class="line">    <span class="keyword">constructor</span>()&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    conFlag(i,j)&#123;</span><br><span class="line">        <span class="keyword">this</span>.nti = i;</span><br><span class="line">        <span class="keyword">this</span>.ntj = j;</span><br><span class="line">        <span class="keyword">this</span>.flag = (<span class="keyword">this</span>.flag+<span class="number">1</span>) % <span class="number">4</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    access(i,j,width,height)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.flag);</span><br><span class="line">        <span class="keyword">switch</span>(<span class="keyword">this</span>.flag)&#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                    <span class="keyword">if</span> (<span class="keyword">this</span>.ntj&lt;j+width)&#123;</span><br><span class="line">                        <span class="keyword">this</span>.ntj++;</span><br><span class="line">                    &#125;<span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">                    <span class="keyword">if</span> (<span class="keyword">this</span>.nti&lt;i+height) &#123;</span><br><span class="line">                        <span class="keyword">this</span>.nti++;</span><br><span class="line">                    &#125;<span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">                    <span class="keyword">if</span> (<span class="keyword">this</span>.ntj&gt;j-width)&#123;</span><br><span class="line">                        <span class="keyword">this</span>.ntj--;</span><br><span class="line">                    &#125;<span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">                    <span class="keyword">if</span> (<span class="keyword">this</span>.nti&gt;=i-height)&#123;</span><br><span class="line">                        <span class="keyword">this</span>.nti--;</span><br><span class="line">                    &#125;<span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.xy =  &#123;</span><br><span class="line">            x:<span class="keyword">this</span>.nti,</span><br><span class="line">            y:<span class="keyword">this</span>.ntj</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> ob = <span class="keyword">new</span> cont();</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">snake</span>(<span class="params">Arr, i, j, width, height</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(width==<span class="number">0</span>||height==<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ob.conFlag(i,j);</span><br><span class="line">    <span class="keyword">var</span> flag = ob.flag %<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">switch</span>(flag)&#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>:<span class="keyword">for</span>(<span class="keyword">var</span> k = <span class="number">0</span>;k&lt;width;k++)&#123;</span><br><span class="line">            ob.access(i,j,width,height);</span><br><span class="line">            <span class="keyword">var</span> xy = ob.xy;</span><br><span class="line">            <span class="keyword">var</span> xyx,xyy;</span><br><span class="line">            xyx = xy.x;xyy = xy.y;</span><br><span class="line">            <span class="built_in">console</span>.log(xyx,xyy,Arr[xyx][xyy]);</span><br><span class="line">        &#125;;</span><br><span class="line">        snake(Arr,xyx,xyy,width,height<span class="number">-1</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0</span>:<span class="keyword">for</span>(<span class="keyword">var</span> k = <span class="number">0</span>;k&lt;height;k++)&#123;</span><br><span class="line">            ob.access(i,j,width,height);</span><br><span class="line">            <span class="keyword">var</span> xy = ob.xy;</span><br><span class="line">            <span class="keyword">var</span> xyx,xyy;</span><br><span class="line">            xyx = xy.x;xyy = xy.y;</span><br><span class="line">            <span class="built_in">console</span>.log(xyx,xyy,Arr[xyx][xyy]);</span><br><span class="line">        &#125;;</span><br><span class="line">        snake(Arr,xyx,xyy,width<span class="number">-1</span>,height);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>調用方法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Arr = [</span><br><span class="line">    [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>],</span><br><span class="line">    [<span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">5</span>],</span><br><span class="line">    [<span class="number">11</span>, <span class="number">16</span>, <span class="number">15</span>, <span class="number">6</span>],</span><br><span class="line">    [<span class="number">10</span>, <span class="number">9</span>, <span class="number">8</span>, <span class="number">7</span>]</span><br><span class="line">];</span><br><span class="line">snake(Arr, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">4</span>, <span class="number">4</span>);<span class="comment">//注意初始的時候確實是-1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Brr = [</span><br><span class="line">    [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],</span><br><span class="line">    [<span class="number">12</span>,<span class="number">13</span>,<span class="number">4</span>],</span><br><span class="line">    [<span class="number">11</span>,<span class="number">14</span>,<span class="number">5</span>],</span><br><span class="line">    [<span class="number">10</span>,<span class="number">15</span>,<span class="number">6</span>],</span><br><span class="line">    [<span class="number">9</span>,<span class="number">8</span>,<span class="number">7</span>]</span><br><span class="line">];</span><br><span class="line">snake(Brr,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">3</span>,<span class="number">5</span>);<span class="comment">//snake(Brr,0,-1,Brr.length,Brr[0].length);</span></span><br></pre></td></tr></table></figure></p>
+<p>我的輸入法怎麽成了繁體了，奇怪。。。總之呢測了一下，沒有bug了</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/02/蛇形矩陣/" data-id="civ1wb6uc000414q3s79v38zg" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/10/18/自我介绍与我的项目介绍/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">自我介绍</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/博客/" style="font-size: 10px;">博客</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/11/02/蛇形矩陣/">蛇形矩陣</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/18/自我介绍与我的项目介绍/">自我介绍</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/23/YSengine/">YSengine</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/22/保留最大整数-md/">保留最大整数.md</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/22/保留最大数/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

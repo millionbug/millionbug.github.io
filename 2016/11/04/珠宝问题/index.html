@@ -5,17 +5,27 @@
   
   <title>珠宝问题 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
+  <meta name="description" content="嗯，就是大家看到的上面那个。我天！真的做不出来了。简直非常口怕！你每次以为ok的时候，信心满满的submit的时候，worry！I’m sad.先贴出来勉强可以解决：
+
+Given “abcabcbb”, the answer is “abc”, which the length is 3.
+Given “bbbbb”, the answer is “b”, with the length of">
 <meta property="og:type" content="article">
 <meta property="og:title" content="珠宝问题">
 <meta property="og:url" content="http://yoursite.com/2016/11/04/珠宝问题/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description">
+<meta property="og:description" content="嗯，就是大家看到的上面那个。我天！真的做不出来了。简直非常口怕！你每次以为ok的时候，信心满满的submit的时候，worry！I’m sad.先贴出来勉强可以解决：
+
+Given “abcabcbb”, the answer is “abc”, which the length is 3.
+Given “bbbbb”, the answer is “b”, with the length of">
 <meta property="og:image" content="http://yoursite.com/images/longest.png">
-<meta property="og:updated_time" content="2016-11-04T11:42:05.978Z">
+<meta property="og:image" content="http://yoursite.com/images/longest-worry.png">
+<meta property="og:updated_time" content="2016-11-04T12:41:02.086Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="珠宝问题">
-<meta name="twitter:description">
+<meta name="twitter:description" content="嗯，就是大家看到的上面那个。我天！真的做不出来了。简直非常口怕！你每次以为ok的时候，信心满满的submit的时候，worry！I’m sad.先贴出来勉强可以解决：
+
+Given “abcabcbb”, the answer is “abc”, which the length is 3.
+Given “bbbbb”, the answer is “b”, with the length of">
 <meta name="twitter:image" content="http://yoursite.com/images/longest.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -54,9 +64,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -88,11 +98,21 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="images/longest.png"></p>
+<p><strong><em>嗯，就是大家看到的上面那个。我天！真的做不出来了。简直非常口怕！</em></strong><br>你每次以为ok的时候，信心满满的submit的时候，worry！I’m sad.<br>先贴出来勉强可以解决：</p>
+<blockquote>
+<p>Given “abcabcbb”, the answer is “abc”, which the length is 3.</p>
+<p>Given “bbbbb”, the answer is “b”, with the length of 1.</p>
+<p>Given “pwwkew”, the answer is “wke”, with the length of 3.</p>
+<p>Given “bvbf”, the answer is “vbf”, with the length of 3.</p>
+</blockquote>
+<p>还不能解决的是：<br><img src="images/longest-worry.png"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Created by YangSir on 2016/11/3.</span><br><span class="line"> */</span></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * @param &#123;string&#125; s</span><br><span class="line"> * @return &#123;number&#125;</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">var</span> lengthOfLongestSubstring = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> Arr = s.split(<span class="string">""</span>);</span><br><span class="line">    <span class="keyword">var</span> Brr = [];</span><br><span class="line">    <span class="keyword">var</span> Crr = [];</span><br><span class="line">    <span class="keyword">var</span> Cto = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> All = [Brr,Crr];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>, lenA = Arr.length; i&lt;lenA; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(i===<span class="number">0</span>)&#123;</span><br><span class="line">            All[Cto][<span class="number">0</span>] = Arr[<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="number">0</span>; j&lt;All[Cto].length; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(All[Cto][j]==Arr[i])&#123;</span><br><span class="line">                <span class="keyword">var</span> len0 = All[<span class="number">0</span>].length;</span><br><span class="line">                <span class="keyword">var</span> len1 = All[<span class="number">1</span>].length;</span><br><span class="line">                <span class="comment">// console.log(len0,len1);</span></span><br><span class="line">                Cto = len0&gt;=len1?<span class="number">1</span>:<span class="number">0</span>;</span><br><span class="line">                All[Cto] = [];</span><br><span class="line"></span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">var</span> k = j+<span class="number">1</span>;k&lt;All[(Cto+<span class="number">1</span>)%<span class="number">2</span>].length;k++)&#123;</span><br><span class="line">                    All[Cto].push(All[(Cto+<span class="number">1</span>)%<span class="number">2</span>][k]);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                All[Cto].push(Arr[i]);</span><br><span class="line">                j = j+All[Cto].length+<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(j == All[Cto].length)&#123;</span><br><span class="line">            All[Cto].push(Arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// console.log(All);</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> result =  All[<span class="number">0</span>].length&gt;All[<span class="number">1</span>].length?All[<span class="number">0</span>]:All[<span class="number">1</span>];</span><br><span class="line">    <span class="built_in">console</span>.log(result);</span><br><span class="line">    <span class="keyword">var</span> str = result.join(<span class="string">""</span>);</span><br><span class="line">    <span class="keyword">return</span> str.length;</span><br><span class="line">&#125;;</span><br><span class="line">lengthOfLongestSubstring(<span class="string">"dvdf"</span>);</span><br></pre></td></tr></table></figure>
+<p>改天再弄吧，好累。。。sad。。。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/04/珠宝问题/" data-id="civ3pohpi0006xcq3e7e7oxnt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/04/珠宝问题/" data-id="civ3rtio300045wq3ndzt2guh" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -103,7 +123,7 @@
   
   
     <a href="/2016/11/02/蛇形矩陣/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">Ancien</strong>
       <div class="article-nav-title">蛇形矩陣</div>
     </a>
   
@@ -121,7 +141,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Mot-clés</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a></li></ul>
     </div>
@@ -131,7 +151,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">Nuage de mot-clés</h3>
     <div class="widget tagcloud">
       <a href="/tags/博客/" style="font-size: 10px;">博客</a>
     </div>
@@ -150,7 +170,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -187,7 +207,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>

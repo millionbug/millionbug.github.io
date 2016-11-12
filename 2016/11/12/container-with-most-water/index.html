@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>container_with_most_water | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="原题目链接
+唉，自己真是越来越懒了写博客，so-so-so-so-sad！
+下面是代码与算法，希望读者能够体会。之前使用的是暴力方法，但是他直接给我了个测试数据是一个一百的数组我直接go die。所以改进了哈哈！
+123456789101112131415161718192021222324var maxArea = function(height)&amp;#123;    var Arr = hei">
+<meta property="og:type" content="article">
+<meta property="og:title" content="container_with_most_water">
+<meta property="og:url" content="http://yoursite.com/2016/11/12/container-with-most-water/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="原题目链接
+唉，自己真是越来越懒了写博客，so-so-so-so-sad！
+下面是代码与算法，希望读者能够体会。之前使用的是暴力方法，但是他直接给我了个测试数据是一个一百的数组我直接go die。所以改进了哈哈！
+123456789101112131415161718192021222324var maxArea = function(height)&amp;#123;    var Arr = hei">
+<meta property="og:image" content="http://yoursite.com/images/container.png">
+<meta property="og:updated_time" content="2016-11-12T06:50:09.853Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="container_with_most_water">
+<meta name="twitter:description" content="原题目链接
+唉，自己真是越来越懒了写博客，so-so-so-so-sad！
+下面是代码与算法，希望读者能够体会。之前使用的是暴力方法，但是他直接给我了个测试数据是一个一百的数组我直接go die。所以改进了哈哈！
+123456789101112131415161718192021222324var maxArea = function(height)&amp;#123;    var Arr = hei">
+<meta name="twitter:image" content="http://yoursite.com/images/container.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-container-with-most-water" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/12/container-with-most-water/" class="article-date">
+  <time datetime="2016-11-12T06:18:41.000Z" itemprop="datePublished">2016-11-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      container_with_most_water
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/container.png"></p>
+<p><a href="https://leetcode.com/problems/container-with-most-water/" target="_blank" rel="external">原题目链接</a></p>
+<p>唉，自己真是越来越懒了写博客，so-so-so-so-sad！</p>
+<p>下面是代码与算法，希望读者能够体会。之前使用的是暴力方法，但是他直接给我了个测试数据是一个一百的数组我直接go die。所以改进了哈哈！</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> maxArea = <span class="function"><span class="keyword">function</span>(<span class="params">height</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> Arr = height;</span><br><span class="line">    <span class="keyword">var</span> Max = <span class="number">0</span>, len = Arr.length;</span><br><span class="line">    <span class="keyword">var</span> k = <span class="number">0</span>, j = len<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; len; i++)&#123;</span><br><span class="line">        <span class="comment">// var line = Arr[k] &gt; Arr[j] ? Arr[j] : Arr[k];</span></span><br><span class="line">        <span class="keyword">if</span>(k == j)&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(Max);</span><br><span class="line">            <span class="keyword">return</span> Max;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> line;</span><br><span class="line">        <span class="keyword">if</span>(Arr[k]&gt;Arr[j])&#123;</span><br><span class="line">            line = Arr[j];</span><br><span class="line">            j--;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            line = Arr[k];</span><br><span class="line">            k++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> area = (j - k + <span class="number">1</span>) * line;</span><br><span class="line">        Max = Max &gt; area ? Max : area;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> result = maxArea([<span class="number">1</span>,<span class="number">2</span>]);</span><br><span class="line"><span class="built_in">console</span>.log(result);</span><br></pre></td></tr></table></figure>
+<p>嗯嗯</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/12/container-with-most-water/" data-id="civeurwpn0002csq3ciuuczr4" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/11/12/conversion/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          conversion
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/11/04/珠宝问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">珠宝问题</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Mot-clés</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/博客/" style="font-size: 10px;">博客</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/11/12/对js的链表操作/">对js的链表操作</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/12/conversion/">conversion</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/12/container-with-most-water/">container_with_most_water</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/04/珠宝问题/">珠宝问题</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/02/蛇形矩陣/">蛇形矩陣</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

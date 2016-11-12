@@ -64,6 +64,127 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-对js的链表操作" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/12/对js的链表操作/" class="article-date">
+  <time datetime="2016-11-12T06:32:50.000Z" itemprop="datePublished">2016-11-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/12/对js的链表操作/">对js的链表操作</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/list.png"><br><a href="https://leetcode.com/problems/merge-k-sorted-lists/" target="_blank" rel="external">原题目链接</a></p>
+<p>这是我今天连续更新四篇的原因，一部分是因为最近有点事，一部分是因为这个东西耗了我太多精力了（所以之前都没有更新），大概有多耗费精力呢？我觉得js的引用类型每个人都应该来那么一下。<br> <strong>*不是数组的引用类型，是使用链表的时候的引用类型，最近做的我很感动！</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Created by YangSir on 2016/11/8.</span><br><span class="line"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListNode</span></span>&#123;</span><br><span class="line">    val:number;</span><br><span class="line">    next:ListNode;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> addNode = <span class="function"><span class="keyword">function</span>(<span class="params">List:ListNode,val:number, pos?:number</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> L = List;</span><br><span class="line">    <span class="keyword">if</span>(L.val == <span class="literal">undefined</span>)&#123;</span><br><span class="line">        L.val = val; L.next = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(L.next)&#123;</span><br><span class="line">            addNode(L.next, val, pos<span class="number">-1</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            L.next = <span class="keyword">new</span> ListNode();</span><br><span class="line">            L.next.val = val;</span><br><span class="line">            L.next.next = <span class="literal">null</span>;</span><br><span class="line">            <span class="keyword">return</span> ;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> mergeKLists = <span class="function"><span class="keyword">function</span>(<span class="params">lists:Array&lt;ListNode&gt;</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//var k = lists.length;</span></span><br><span class="line">    <span class="keyword">var</span> Arr = [];</span><br><span class="line">    <span class="keyword">var</span> min = <span class="number">-1</span>, index;</span><br><span class="line">    <span class="keyword">var</span> newList = <span class="keyword">new</span> ListNode();</span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">        min = lists[<span class="number">0</span>].val; index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>, k = lists.length; i &lt; k ; i++)&#123;</span><br><span class="line">            <span class="keyword">var</span> flag = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span>(lists[i]||lists[i].val)&#123;</span><br><span class="line">                <span class="keyword">var</span> val = lists[i].val;</span><br><span class="line">                <span class="keyword">if</span>(min&gt;val)&#123;</span><br><span class="line">                    min = val;</span><br><span class="line">                    index = i;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        addNode(newList, min);</span><br><span class="line">        <span class="keyword">if</span>(lists[index])&#123;   <span class="comment">//如果存在就执行向下延伸并且各项指标加一，如果next不存在就删掉当前各项指标</span></span><br><span class="line">            Arr[index] ? Arr[index]++ : Arr[index] = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span>(lists[index].next)&#123;</span><br><span class="line">                lists[index] = lists[index].next;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                Arr.splice(index, <span class="number">1</span>);</span><br><span class="line">                lists.splice(index, <span class="number">1</span>);</span><br><span class="line">                <span class="keyword">if</span>(lists.length == <span class="number">0</span>)&#123;</span><br><span class="line">                    <span class="keyword">return</span> newList;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//下面是测试使用的数据</span></span><br><span class="line"><span class="keyword">var</span> L = <span class="keyword">new</span> ListNode();</span><br><span class="line"><span class="keyword">var</span> M = <span class="keyword">new</span> ListNode();</span><br><span class="line"><span class="keyword">var</span> Arr = [];</span><br><span class="line">Arr.push(M);</span><br><span class="line">Arr.push(L);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">7</span>; i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(i%<span class="number">2</span>)&#123;</span><br><span class="line">        addNode(L, i);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        addNode(M, i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(L,M,Arr);</span><br><span class="line"><span class="keyword">var</span> newL = mergeKLists(Arr);</span><br><span class="line"><span class="built_in">console</span>.log(newL);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/12/对js的链表操作/" data-id="civeurwqx0007csq37nfd497o" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="zigzag-conversion" class="article article-type-zigzag" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/12/conversion/" class="article-date">
+  <time datetime="2016-11-12T06:31:45.000Z" itemprop="datePublished">2016-11-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/12/conversion/">conversion</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong><em>简单说就是将字符串打乱然后排序，说到这里，这个不是密码学了吗？做的时候都没有发现唉！</em></strong></p>
+<p><a href="https://leetcode.com/problems/zigzag-conversion/" target="_blank" rel="external">原题目链接</a></p>
+<p><img src="/images/key.png"></p>
+<p>对了我依然还是贴上typescript的代码，其实我的思路错了，不应该使用这个方法的，应该有更简单的方法。但是也算是勉强解决了，就是逻辑更加困难了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Created by YangSir on 2016/11/5.</span><br><span class="line"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Ctr</span></span>&#123;</span><br><span class="line">    Flag:number;</span><br><span class="line">    flag:number;</span><br><span class="line">    x:number;</span><br><span class="line">    y:number;</span><br><span class="line">    <span class="keyword">constructor</span>()&#123;</span><br><span class="line">        <span class="keyword">this</span>.Flag = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">this</span>.flag = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">this</span>.x = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">this</span>.y = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    concon()&#123;</span><br><span class="line">        <span class="keyword">this</span>.flag = (++<span class="keyword">this</span>.flag)%<span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    con(n)&#123;</span><br><span class="line">        <span class="keyword">if</span>((<span class="keyword">this</span>.Flag!=<span class="number">0</span>)&amp;&amp;<span class="keyword">this</span>.Flag%(n<span class="number">-1</span>)==<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">this</span>.concon();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.Flag++;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.fn();</span><br><span class="line">    &#125;</span><br><span class="line">    fn()&#123;</span><br><span class="line">        <span class="keyword">switch</span>(<span class="keyword">this</span>.flag)&#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>: <span class="keyword">this</span>.x++;<span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">0</span>: <span class="keyword">this</span>.y++;<span class="keyword">this</span>.x--;<span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            x: <span class="keyword">this</span>.x,</span><br><span class="line">            y: <span class="keyword">this</span>.y</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> convert = <span class="function"><span class="keyword">function</span>(<span class="params">str, n</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> ctr = <span class="keyword">new</span> Ctr();</span><br><span class="line">    <span class="keyword">var</span> Srr = str.split(<span class="string">""</span>);</span><br><span class="line">    <span class="keyword">var</span> Arr = [];</span><br><span class="line">    <span class="keyword">var</span> Brr = [];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; n; i++)&#123;</span><br><span class="line">        Arr.push([]);</span><br><span class="line">    &#125;</span><br><span class="line">    Arr[<span class="number">0</span>][<span class="number">0</span>] = Srr[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="number">1</span>,len = str.length; j &lt; len; j++)&#123;</span><br><span class="line">        <span class="keyword">var</span> ob = ctr.con(n);</span><br><span class="line">        Arr[ob.x][ob.y] = Srr[j];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> k = <span class="number">0</span>,LenA = Arr.length; k&lt;LenA; k++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> p = <span class="number">0</span>,LenB = Arr[k].length; p&lt;LenB; p++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(Arr[k][p])&#123;</span><br><span class="line">                Brr.push(Arr[k][p]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> Str = Brr.join(<span class="string">""</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(Str);</span><br><span class="line">    <span class="keyword">return</span> Str;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//convert("PAYPALISHIRING",3);</span></span><br><span class="line">convert(<span class="string">"AB"</span>,<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/12/conversion/" data-id="civeurwq20004csq34s7n3ta1" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-container-with-most-water" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/12/container-with-most-water/" class="article-date">
+  <time datetime="2016-11-12T06:18:41.000Z" itemprop="datePublished">2016-11-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/12/container-with-most-water/">container_with_most_water</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/container.png"></p>
+<p><a href="https://leetcode.com/problems/container-with-most-water/" target="_blank" rel="external">原题目链接</a></p>
+<p>唉，自己真是越来越懒了写博客，so-so-so-so-sad！</p>
+<p>下面是代码与算法，希望读者能够体会。之前使用的是暴力方法，但是他直接给我了个测试数据是一个一百的数组我直接go die。所以改进了哈哈！</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> maxArea = <span class="function"><span class="keyword">function</span>(<span class="params">height</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> Arr = height;</span><br><span class="line">    <span class="keyword">var</span> Max = <span class="number">0</span>, len = Arr.length;</span><br><span class="line">    <span class="keyword">var</span> k = <span class="number">0</span>, j = len<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; len; i++)&#123;</span><br><span class="line">        <span class="comment">// var line = Arr[k] &gt; Arr[j] ? Arr[j] : Arr[k];</span></span><br><span class="line">        <span class="keyword">if</span>(k == j)&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(Max);</span><br><span class="line">            <span class="keyword">return</span> Max;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> line;</span><br><span class="line">        <span class="keyword">if</span>(Arr[k]&gt;Arr[j])&#123;</span><br><span class="line">            line = Arr[j];</span><br><span class="line">            j--;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            line = Arr[k];</span><br><span class="line">            k++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> area = (j - k + <span class="number">1</span>) * line;</span><br><span class="line">        Max = Max &gt; area ? Max : area;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> result = maxArea([<span class="number">1</span>,<span class="number">2</span>]);</span><br><span class="line"><span class="built_in">console</span>.log(result);</span><br></pre></td></tr></table></figure>
+<p>嗯嗯</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/12/container-with-most-water/" data-id="civeurwpn0002csq3ciuuczr4" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-珠宝问题" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/11/04/珠宝问题/" class="article-date">
@@ -86,22 +207,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="images/longest.png"></p>
-<p><strong><em>嗯，就是大家看到的上面那个。我天！真的做不出来了。简直非常口怕！</em></strong><br>你每次以为ok的时候，信心满满的submit的时候，worry！I’m sad.<br>先贴出来勉强可以解决：</p>
+        <p><img src="/images/longest.png"></p>
+<p><strong><em>嗯，就是大家看到的上面那个。已经完全通过了</em></strong><br>你每次以为ok的时候，信心满满的submit的时候，worry！I’m sad.<br>先贴出来勉强可以解决(已经修改了，已经完全适应了。通过！)：</p>
 <blockquote>
 <p>Given “abcabcbb”, the answer is “abc”, which the length is 3.</p>
 <p>Given “bbbbb”, the answer is “b”, with the length of 1.</p>
 <p>Given “pwwkew”, the answer is “wke”, with the length of 3.</p>
 <p>Given “bvbf”, the answer is “vbf”, with the length of 3.</p>
 </blockquote>
-<p>还不能解决的是：<br><img src="images/longest-worry.png"></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Created by YangSir on 2016/11/3.</span><br><span class="line"> */</span></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * @param &#123;string&#125; s</span><br><span class="line"> * @return &#123;number&#125;</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">var</span> lengthOfLongestSubstring = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> Arr = s.split(<span class="string">""</span>);</span><br><span class="line">    <span class="keyword">var</span> Brr = [];</span><br><span class="line">    <span class="keyword">var</span> Crr = [];</span><br><span class="line">    <span class="keyword">var</span> Cto = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> All = [Brr,Crr];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>, lenA = Arr.length; i&lt;lenA; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(i===<span class="number">0</span>)&#123;</span><br><span class="line">            All[Cto][<span class="number">0</span>] = Arr[<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="number">0</span>; j&lt;All[Cto].length; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(All[Cto][j]==Arr[i])&#123;</span><br><span class="line">                <span class="keyword">var</span> len0 = All[<span class="number">0</span>].length;</span><br><span class="line">                <span class="keyword">var</span> len1 = All[<span class="number">1</span>].length;</span><br><span class="line">                <span class="comment">// console.log(len0,len1);</span></span><br><span class="line">                Cto = len0&gt;=len1?<span class="number">1</span>:<span class="number">0</span>;</span><br><span class="line">                All[Cto] = [];</span><br><span class="line"></span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">var</span> k = j+<span class="number">1</span>;k&lt;All[(Cto+<span class="number">1</span>)%<span class="number">2</span>].length;k++)&#123;</span><br><span class="line">                    All[Cto].push(All[(Cto+<span class="number">1</span>)%<span class="number">2</span>][k]);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                All[Cto].push(Arr[i]);</span><br><span class="line">                j = j+All[Cto].length+<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(j == All[Cto].length)&#123;</span><br><span class="line">            All[Cto].push(Arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// console.log(All);</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> result =  All[<span class="number">0</span>].length&gt;All[<span class="number">1</span>].length?All[<span class="number">0</span>]:All[<span class="number">1</span>];</span><br><span class="line">    <span class="built_in">console</span>.log(result);</span><br><span class="line">    <span class="keyword">var</span> str = result.join(<span class="string">""</span>);</span><br><span class="line">    <span class="keyword">return</span> str.length;</span><br><span class="line">&#125;;</span><br><span class="line">lengthOfLongestSubstring(<span class="string">"dvdf"</span>);</span><br></pre></td></tr></table></figure>
-<p>改天再弄吧，好累。。。sad。。。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Created by YangSir on 2016/11/3.</span><br><span class="line"> */</span></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * @param &#123;string&#125; s</span><br><span class="line"> * @return &#123;number&#125;</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">var</span> lengthOfLongestSubstring = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> Arr = s.split(<span class="string">""</span>);</span><br><span class="line">    <span class="keyword">var</span> Brr = [];</span><br><span class="line">    <span class="keyword">var</span> Crr = [];</span><br><span class="line">    <span class="keyword">var</span> Cto = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> All = [Brr,Crr];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>, lenA = Arr.length; i&lt;lenA; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(i===<span class="number">0</span>)&#123;</span><br><span class="line">            All[Cto][<span class="number">0</span>] = Arr[<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="number">0</span>; j&lt;All[Cto].length; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(All[Cto][j]==Arr[i])&#123;</span><br><span class="line">                <span class="keyword">if</span>(All[Cto].length&gt;All[(Cto+<span class="number">1</span>)%<span class="number">2</span>].length)&#123;</span><br><span class="line">                    <span class="comment">// All[(Cto+1)%2] = All[Cto];</span></span><br><span class="line">                    Cto = (Cto+<span class="number">1</span>)%<span class="number">2</span>;</span><br><span class="line">                    All[Cto] = [];</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">var</span> index = j+<span class="number">1</span>,indexlen = All[(Cto+<span class="number">1</span>)%<span class="number">2</span>].length; index &lt; indexlen; index++)&#123;</span><br><span class="line">                        All[Cto].push(All[(Cto+<span class="number">1</span>)%<span class="number">2</span>][index]);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">var</span> kk = <span class="number">0</span>, index = j+<span class="number">1</span>; kk &lt; index; kk++)&#123;</span><br><span class="line">                        All[Cto].shift();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                All[Cto].push(Arr[i]);</span><br><span class="line">                j = j+All[Cto].length+<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(j == All[Cto].length)&#123;</span><br><span class="line">            All[Cto].push(Arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">         <span class="comment">//console.log(All);</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> result =  All[<span class="number">0</span>].length&gt;All[<span class="number">1</span>].length?All[<span class="number">0</span>]:All[<span class="number">1</span>];</span><br><span class="line">    <span class="comment">//console.log(result);</span></span><br><span class="line">    <span class="keyword">var</span> str = result.join(<span class="string">""</span>);</span><br><span class="line">    <span class="keyword">return</span> str.length;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// lengthOfLongestSubstring("ggububgvfk");</span></span><br><span class="line"><span class="comment">//  lengthOfLongestSubstring("jbpnbwwd");</span></span><br></pre></td></tr></table></figure>
+<p>改天再弄吧，好累。。。sad。。。（完成了，摩西摩西）</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/04/珠宝问题/" data-id="civ3rtio300045wq3ndzt2guh" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/11/04/珠宝问题/" data-id="civeurwrv0009csq342c192md" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -144,7 +264,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/02/蛇形矩陣/" data-id="civ3rtirg00075wq3n9t8qffh" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/11/02/蛇形矩陣/" data-id="civeurws8000bcsq3idfzzllf" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -185,7 +305,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/18/自我介绍与我的项目介绍/" data-id="civ3rtirr00085wq3hz059e9i" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/10/18/自我介绍与我的项目介绍/" data-id="civeurwse000dcsq3zehd2jmx" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -223,7 +343,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/23/YSengine/" data-id="civ3rtimp00015wq3oa1fep1x" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/09/23/YSengine/" data-id="civeurwpd0001csq3juddpqkg" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -277,7 +397,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/22/保留最大整数-md/" data-id="civ3rtisi000a5wq3w2gxaxik" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/09/22/保留最大整数-md/" data-id="civeurwqc0005csq3f1bpbujy" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -303,7 +423,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/22/保留最大数/" data-id="civ3rtigm00005wq3gvlevq91" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/09/22/保留最大数/" data-id="civeurwml0000csq3vgs5a9ri" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -363,91 +483,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/21/算法法的练习/" data-id="civ3rtir700065wq3v68obli6" class="article-share-link">Partager</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-你好世界" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/03/30/你好世界/" class="article-date">
-  <time datetime="2016-03-30T14:55:38.000Z" itemprop="datePublished">2016-03-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/30/你好世界/">hello world</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>hello world!<br>今天22:58我的博客上线了！<br>我吼激动！</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/03/30/你好世界/" data-id="civ3rtinh00035wq33ezm8kwp" class="article-share-link">Partager</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/03/26/hello-world/" class="article-date">
-  <time datetime="2016-03-26T07:28:41.143Z" itemprop="datePublished">2016-03-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/26/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/03/26/hello-world/" data-id="civ3rtin300025wq3m13w7ghe" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/09/21/算法法的练习/" data-id="civeurws4000acsq3f6yuhfxo" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -458,6 +494,10 @@
 
   
 
+
+  <nav id="page-nav">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">__('next') &raquo;</a>
+  </nav>
 </section>
         
           <aside id="sidebar">
@@ -501,23 +541,23 @@
       <ul>
         
           <li>
+            <a href="/2016/11/12/对js的链表操作/">对js的链表操作</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/12/conversion/">conversion</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/12/container-with-most-water/">container_with_most_water</a>
+          </li>
+        
+          <li>
             <a href="/2016/11/04/珠宝问题/">珠宝问题</a>
           </li>
         
           <li>
             <a href="/2016/11/02/蛇形矩陣/">蛇形矩陣</a>
-          </li>
-        
-          <li>
-            <a href="/2016/10/18/自我介绍与我的项目介绍/">自我介绍</a>
-          </li>
-        
-          <li>
-            <a href="/2016/09/23/YSengine/">YSengine</a>
-          </li>
-        
-          <li>
-            <a href="/2016/09/22/保留最大整数-md/">保留最大整数.md</a>
           </li>
         
       </ul>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>conversion | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="简单说就是将字符串打乱然后排序，说到这里，这个不是密码学了吗？做的时候都没有发现唉！
+原题目链接
+
+对了我依然还是贴上typescript的代码，其实我的思路错了，不应该使用这个方法的，应该有更简单的方法。但是也算是勉强解决了，就是逻辑更加困难了。
+123456789101112131415161718192021222324252627282930313233343536373839404142">
+<meta property="og:type" content="article">
+<meta property="og:title" content="conversion">
+<meta property="og:url" content="http://yoursite.com/2016/11/12/conversion/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="简单说就是将字符串打乱然后排序，说到这里，这个不是密码学了吗？做的时候都没有发现唉！
+原题目链接
+
+对了我依然还是贴上typescript的代码，其实我的思路错了，不应该使用这个方法的，应该有更简单的方法。但是也算是勉强解决了，就是逻辑更加困难了。
+123456789101112131415161718192021222324252627282930313233343536373839404142">
+<meta property="og:image" content="http://yoursite.com/images/key.png">
+<meta property="og:updated_time" content="2016-11-12T06:50:04.077Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="conversion">
+<meta name="twitter:description" content="简单说就是将字符串打乱然后排序，说到这里，这个不是密码学了吗？做的时候都没有发现唉！
+原题目链接
+
+对了我依然还是贴上typescript的代码，其实我的思路错了，不应该使用这个方法的，应该有更简单的方法。但是也算是勉强解决了，就是逻辑更加困难了。
+123456789101112131415161718192021222324252627282930313233343536373839404142">
+<meta name="twitter:image" content="http://yoursite.com/images/key.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="zigzag-conversion" class="article article-type-zigzag" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/12/conversion/" class="article-date">
+  <time datetime="2016-11-12T06:31:45.000Z" itemprop="datePublished">2016-11-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      conversion
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong><em>简单说就是将字符串打乱然后排序，说到这里，这个不是密码学了吗？做的时候都没有发现唉！</em></strong></p>
+<p><a href="https://leetcode.com/problems/zigzag-conversion/" target="_blank" rel="external">原题目链接</a></p>
+<p><img src="/images/key.png"></p>
+<p>对了我依然还是贴上typescript的代码，其实我的思路错了，不应该使用这个方法的，应该有更简单的方法。但是也算是勉强解决了，就是逻辑更加困难了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Created by YangSir on 2016/11/5.</span><br><span class="line"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Ctr</span></span>&#123;</span><br><span class="line">    Flag:number;</span><br><span class="line">    flag:number;</span><br><span class="line">    x:number;</span><br><span class="line">    y:number;</span><br><span class="line">    <span class="keyword">constructor</span>()&#123;</span><br><span class="line">        <span class="keyword">this</span>.Flag = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">this</span>.flag = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">this</span>.x = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">this</span>.y = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    concon()&#123;</span><br><span class="line">        <span class="keyword">this</span>.flag = (++<span class="keyword">this</span>.flag)%<span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    con(n)&#123;</span><br><span class="line">        <span class="keyword">if</span>((<span class="keyword">this</span>.Flag!=<span class="number">0</span>)&amp;&amp;<span class="keyword">this</span>.Flag%(n<span class="number">-1</span>)==<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">this</span>.concon();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.Flag++;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.fn();</span><br><span class="line">    &#125;</span><br><span class="line">    fn()&#123;</span><br><span class="line">        <span class="keyword">switch</span>(<span class="keyword">this</span>.flag)&#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>: <span class="keyword">this</span>.x++;<span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">0</span>: <span class="keyword">this</span>.y++;<span class="keyword">this</span>.x--;<span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            x: <span class="keyword">this</span>.x,</span><br><span class="line">            y: <span class="keyword">this</span>.y</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> convert = <span class="function"><span class="keyword">function</span>(<span class="params">str, n</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> ctr = <span class="keyword">new</span> Ctr();</span><br><span class="line">    <span class="keyword">var</span> Srr = str.split(<span class="string">""</span>);</span><br><span class="line">    <span class="keyword">var</span> Arr = [];</span><br><span class="line">    <span class="keyword">var</span> Brr = [];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; n; i++)&#123;</span><br><span class="line">        Arr.push([]);</span><br><span class="line">    &#125;</span><br><span class="line">    Arr[<span class="number">0</span>][<span class="number">0</span>] = Srr[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="number">1</span>,len = str.length; j &lt; len; j++)&#123;</span><br><span class="line">        <span class="keyword">var</span> ob = ctr.con(n);</span><br><span class="line">        Arr[ob.x][ob.y] = Srr[j];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> k = <span class="number">0</span>,LenA = Arr.length; k&lt;LenA; k++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> p = <span class="number">0</span>,LenB = Arr[k].length; p&lt;LenB; p++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(Arr[k][p])&#123;</span><br><span class="line">                Brr.push(Arr[k][p]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> Str = Brr.join(<span class="string">""</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(Str);</span><br><span class="line">    <span class="keyword">return</span> Str;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//convert("PAYPALISHIRING",3);</span></span><br><span class="line">convert(<span class="string">"AB"</span>,<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/12/conversion/" data-id="civeurwq20004csq34s7n3ta1" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/11/12/对js的链表操作/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          对js的链表操作
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/11/12/container-with-most-water/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">container_with_most_water</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Mot-clés</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/博客/" style="font-size: 10px;">博客</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/11/12/对js的链表操作/">对js的链表操作</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/12/conversion/">conversion</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/12/container-with-most-water/">container_with_most_water</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/04/珠宝问题/">珠宝问题</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/02/蛇形矩陣/">蛇形矩陣</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

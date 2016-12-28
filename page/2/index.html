@@ -51,9 +51,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -63,6 +63,66 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-算法法的练习" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/21/算法法的练习/" class="article-date">
+  <time datetime="2016-09-21T13:47:20.000Z" itemprop="datePublished">2016-09-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/21/算法法的练习/">算法的练习.md</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="是的从今天开始要每天刷一道算法题，恶心也要刷！"><a href="#是的从今天开始要每天刷一道算法题，恶心也要刷！" class="headerlink" title="是的从今天开始要每天刷一道算法题，恶心也要刷！"></a>是的从今天开始要每天刷一道算法题，恶心也要刷！</h2><p><img src="/images/kangaroo-on-river.png"></p>
+<blockquote>
+<p>一条袋鼠要从河这边跳到河另一边，河流很宽，但是中间打有桩子，每隔一米就有一个，每个桩子上装有一个弹簧。袋鼠跳弹簧就可以跳很远，每个弹簧的力量不同，用一个数字表示他的力量。如果数字是5，表示袋鼠跳到上面后下一跳最远可以跳5个，如果为0，就会陷进去无法继续跳跃。河流一共N米宽，袋鼠初始位置就在第一个弹簧上面，要跳到最后一个弹簧之后就算过河了，给定每个弹簧的力量，求袋鼠最少要多少跳才能到达对岸。如果无法到达输出-1</p>
+</blockquote>
+<h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><blockquote>
+<p>输入分两行，第一行是数组长度N，第二行是每一项的值，用空格分隔</p>
+</blockquote>
+<h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><blockquote>
+<p>输出最后骚的条数，无法到达输出-1</p>
+</blockquote>
+<h4 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h4><blockquote>
+<p>5<br>2 0 1 1 1</p>
+</blockquote>
+<h4 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h4><blockquote>
+<p>4</p>
+</blockquote>
+<p>今天晚上因为时间原因呢，就只好拖上一个不完整的结果出来了！<br>解决方法：将数据从后面依次入栈，然后从栈顶根据栈顶数值的大小进行出栈操作。如果能够完成出栈就行了。<br>首先是用到js的数组模拟的栈，下面是对数组进行模拟出栈操作的函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function Pop(arr)&#123;</span><br><span class="line">       var len = arr.length;                                               </span><br><span class="line">       var j = 0;                                             </span><br><span class="line">       for(var i = 0; i &lt; len; )&#123;                   </span><br><span class="line">           arr[i] = parseInt(arr[i]);               </span><br><span class="line">           if(arr[i]!==0)&#123;              </span><br><span class="line">               i = i + arr[i];            </span><br><span class="line">               j++;          </span><br><span class="line">           &#125;else&#123;             </span><br><span class="line">               return -1;            </span><br><span class="line">           &#125;           </span><br><span class="line">       &#125;            </span><br><span class="line">       if(i&gt;=len)&#123;      </span><br><span class="line">           return j;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+<p>   上面的函数，只能执行每次都是按照弹簧最大弹力来计算。有的时候数据例如</p>
+<blockquote>
+<p>2 3 0 1 1 1</p>
+</blockquote>
+<p>   这个时候如果第一次只跳一格时可以通过的。但是上面的算法无法通过。明天再说咯！</p>
+<hr>
+<p>转眼就到了明天了呢！很激动，妈蛋这个题是真不会，没有做出来很羞愧。我们进入下一道算法-&gt;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/09/21/算法法的练习/" data-id="cix8h0x8i000a8gq307e7q5pk" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-你好世界" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -91,7 +151,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/03/30/你好世界/" data-id="civev552z0004ygq33bpxm5cf" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/03/30/你好世界/" data-id="cix8h0x6w00058gq37c4boy0r" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li></ul>
@@ -138,7 +198,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/03/26/hello-world/" data-id="civev55390005ygq3nop2dfmn" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/03/26/hello-world/" data-id="cix8h0x6m00048gq3yg0qqyd3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -162,7 +222,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Mot-clés</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a></li></ul>
     </div>
@@ -172,7 +232,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
       <a href="/tags/博客/" style="font-size: 10px;">博客</a>
     </div>
@@ -183,7 +243,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li></ul>
     </div>
   </div>
 
@@ -191,9 +251,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/12/28/进击的前端路由/">进击的前端路由</a>
+          </li>
         
           <li>
             <a href="/2016/11/12/对js的链表操作/">对js的链表操作</a>
@@ -211,10 +275,6 @@
             <a href="/2016/11/04/珠宝问题/">珠宝问题</a>
           </li>
         
-          <li>
-            <a href="/2016/11/02/蛇形矩陣/">蛇形矩陣</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -228,7 +288,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 John Doe<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>

@@ -36,7 +36,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Yangsir(yangsir_v@qq.com)</a>
+        <a href="/" id="logo">Hexo</a>
       </h1>
       
     </div>
@@ -51,9 +51,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -63,6 +63,43 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-进击的前端路由" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/28/进击的前端路由/" class="article-date">
+  <time datetime="2016-12-28T04:54:27.000Z" itemprop="datePublished">2016-12-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/28/进击的前端路由/">进击的前端路由</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天立项，最近准备学习前端路由。感受一下真正的单页面开发与加强js的掌握。嗯，是这样的，我要尝试自己做一个路由的哦！（还有今天开始晚上跑步，如果可以再刷一下leecode）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/12/28/进击的前端路由/" data-id="cix8h0x98000e8gq38qs67e5u" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-对js的链表操作" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -87,13 +124,13 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="/images/list.png"><br><a href="https://leetcode.com/problems/merge-k-sorted-lists/" target="_blank" rel="external">原题目链接</a></p>
-<p>这是我今天连续更新四篇的原因，一部分是因为最近有点事，一部分是因为这个东西耗了我太多精力了（所以之前都没有更新），大概有多耗费精力呢？我觉得js的引用类型每个人都应该来那么一下。<br> <strong>*不是数组的引用类型，是使用链表的时候的引用类型，最近做的我很感动！</strong></p>
+<p>这是我今天连续更新四篇的原因，一部分是因为最近有点事，一部分是因为这个东西耗了我太多精力了（所以之前都没有更新），大概有多耗费精力呢？我觉得js的引用类型每个人都应该来那么一下。<br> <strong>不是数组的引用类型，是使用链表的时候的引用类型，最近做的我很感动！</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Created by YangSir on 2016/11/8.</span><br><span class="line"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListNode</span></span>&#123;</span><br><span class="line">    val:number;</span><br><span class="line">    next:ListNode;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> addNode = <span class="function"><span class="keyword">function</span>(<span class="params">List:ListNode,val:number, pos?:number</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> L = List;</span><br><span class="line">    <span class="keyword">if</span>(L.val == <span class="literal">undefined</span>)&#123;</span><br><span class="line">        L.val = val; L.next = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(L.next)&#123;</span><br><span class="line">            addNode(L.next, val, pos<span class="number">-1</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            L.next = <span class="keyword">new</span> ListNode();</span><br><span class="line">            L.next.val = val;</span><br><span class="line">            L.next.next = <span class="literal">null</span>;</span><br><span class="line">            <span class="keyword">return</span> ;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> mergeKLists = <span class="function"><span class="keyword">function</span>(<span class="params">lists:Array&lt;ListNode&gt;</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//var k = lists.length;</span></span><br><span class="line">    <span class="keyword">var</span> Arr = [];</span><br><span class="line">    <span class="keyword">var</span> min = <span class="number">-1</span>, index;</span><br><span class="line">    <span class="keyword">var</span> newList = <span class="keyword">new</span> ListNode();</span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">        min = lists[<span class="number">0</span>].val; index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>, k = lists.length; i &lt; k ; i++)&#123;</span><br><span class="line">            <span class="keyword">var</span> flag = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span>(lists[i]||lists[i].val)&#123;</span><br><span class="line">                <span class="keyword">var</span> val = lists[i].val;</span><br><span class="line">                <span class="keyword">if</span>(min&gt;val)&#123;</span><br><span class="line">                    min = val;</span><br><span class="line">                    index = i;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        addNode(newList, min);</span><br><span class="line">        <span class="keyword">if</span>(lists[index])&#123;   <span class="comment">//如果存在就执行向下延伸并且各项指标加一，如果next不存在就删掉当前各项指标</span></span><br><span class="line">            Arr[index] ? Arr[index]++ : Arr[index] = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span>(lists[index].next)&#123;</span><br><span class="line">                lists[index] = lists[index].next;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                Arr.splice(index, <span class="number">1</span>);</span><br><span class="line">                lists.splice(index, <span class="number">1</span>);</span><br><span class="line">                <span class="keyword">if</span>(lists.length == <span class="number">0</span>)&#123;</span><br><span class="line">                    <span class="keyword">return</span> newList;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//下面是测试使用的数据</span></span><br><span class="line"><span class="keyword">var</span> L = <span class="keyword">new</span> ListNode();</span><br><span class="line"><span class="keyword">var</span> M = <span class="keyword">new</span> ListNode();</span><br><span class="line"><span class="keyword">var</span> Arr = [];</span><br><span class="line">Arr.push(M);</span><br><span class="line">Arr.push(L);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">7</span>; i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(i%<span class="number">2</span>)&#123;</span><br><span class="line">        addNode(L, i);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        addNode(M, i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(L,M,Arr);</span><br><span class="line"><span class="keyword">var</span> newL = mergeKLists(Arr);</span><br><span class="line"><span class="built_in">console</span>.log(newL);</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/12/对js的链表操作/" data-id="civeurwqx0007csq37nfd497o" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/11/12/对js的链表操作/" data-id="cix8h0x8800088gq3uha02keh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -133,7 +170,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/12/conversion/" data-id="civeurwq20004csq34s7n3ta1" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/11/12/conversion/" data-id="cix8h0x6900028gq32diaycy4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -175,7 +212,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/12/container-with-most-water/" data-id="civeurwpn0002csq3ciuuczr4" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/11/12/container-with-most-water/" data-id="cix8h0x6i00038gq3s5o17b18" class="article-share-link">Share</a>
       
       
     </footer>
@@ -221,7 +258,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/04/珠宝问题/" data-id="civeurwrv0009csq342c192md" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/11/04/珠宝问题/" data-id="cix8h0x8e00098gq3zgpcawse" class="article-share-link">Share</a>
       
       
     </footer>
@@ -264,7 +301,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/02/蛇形矩陣/" data-id="civeurws8000bcsq3idfzzllf" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/11/02/蛇形矩陣/" data-id="cix8h0x8t000c8gq3cfbnosdt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -305,7 +342,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/18/自我介绍与我的项目介绍/" data-id="civeurwse000dcsq3zehd2jmx" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/10/18/自我介绍与我的项目介绍/" data-id="cix8h0x91000d8gq3vipjm1rj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -343,7 +380,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/23/YSengine/" data-id="civeurwpd0001csq3juddpqkg" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/09/23/YSengine/" data-id="cix8h0x5m00018gq3clfvv36n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -397,7 +434,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/22/保留最大整数-md/" data-id="civeurwqc0005csq3f1bpbujy" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/09/22/保留最大整数-md/" data-id="cix8h0x7200068gq3efqpq7fk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -423,67 +460,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/22/保留最大数/" data-id="civeurwml0000csq3vgs5a9ri" class="article-share-link">Partager</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-算法法的练习" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/09/21/算法法的练习/" class="article-date">
-  <time datetime="2016-09-21T13:47:20.000Z" itemprop="datePublished">2016-09-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/21/算法法的练习/">算法的练习.md</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="是的从今天开始要每天刷一道算法题，恶心也要刷！"><a href="#是的从今天开始要每天刷一道算法题，恶心也要刷！" class="headerlink" title="是的从今天开始要每天刷一道算法题，恶心也要刷！"></a>是的从今天开始要每天刷一道算法题，恶心也要刷！</h2><p><img src="/images/kangaroo-on-river.png"></p>
-<blockquote>
-<p>一条袋鼠要从河这边跳到河另一边，河流很宽，但是中间打有桩子，每隔一米就有一个，每个桩子上装有一个弹簧。袋鼠跳弹簧就可以跳很远，每个弹簧的力量不同，用一个数字表示他的力量。如果数字是5，表示袋鼠跳到上面后下一跳最远可以跳5个，如果为0，就会陷进去无法继续跳跃。河流一共N米宽，袋鼠初始位置就在第一个弹簧上面，要跳到最后一个弹簧之后就算过河了，给定每个弹簧的力量，求袋鼠最少要多少跳才能到达对岸。如果无法到达输出-1</p>
-</blockquote>
-<h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><blockquote>
-<p>输入分两行，第一行是数组长度N，第二行是每一项的值，用空格分隔</p>
-</blockquote>
-<h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><blockquote>
-<p>输出最后骚的条数，无法到达输出-1</p>
-</blockquote>
-<h4 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h4><blockquote>
-<p>5<br>2 0 1 1 1</p>
-</blockquote>
-<h4 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h4><blockquote>
-<p>4</p>
-</blockquote>
-<p>今天晚上因为时间原因呢，就只好拖上一个不完整的结果出来了！<br>解决方法：将数据从后面依次入栈，然后从栈顶根据栈顶数值的大小进行出栈操作。如果能够完成出栈就行了。<br>首先是用到js的数组模拟的栈，下面是对数组进行模拟出栈操作的函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function Pop(arr)&#123;</span><br><span class="line">       var len = arr.length;                                               </span><br><span class="line">       var j = 0;                                             </span><br><span class="line">       for(var i = 0; i &lt; len; )&#123;                   </span><br><span class="line">           arr[i] = parseInt(arr[i]);               </span><br><span class="line">           if(arr[i]!==0)&#123;              </span><br><span class="line">               i = i + arr[i];            </span><br><span class="line">               j++;          </span><br><span class="line">           &#125;else&#123;             </span><br><span class="line">               return -1;            </span><br><span class="line">           &#125;           </span><br><span class="line">       &#125;            </span><br><span class="line">       if(i&gt;=len)&#123;      </span><br><span class="line">           return j;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
-<p>   上面的函数，只能执行每次都是按照弹簧最大弹力来计算。有的时候数据例如</p>
-<blockquote>
-<p>2 3 0 1 1 1</p>
-</blockquote>
-<p>   这个时候如果第一次只跳一格时可以通过的。但是上面的算法无法通过。明天再说咯！</p>
-<hr>
-<p>转眼就到了明天了呢！很激动，妈蛋这个题是真不会，没有做出来很羞愧。我们进入下一道算法-&gt;</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/21/算法法的练习/" data-id="civeurws4000acsq3f6yuhfxo" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/09/22/保留最大数/" data-id="cix8h0x3f00008gq33t5kyo6d" class="article-share-link">Share</a>
       
       
     </footer>
@@ -507,7 +484,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Mot-clés</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a></li></ul>
     </div>
@@ -517,7 +494,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
       <a href="/tags/博客/" style="font-size: 10px;">博客</a>
     </div>
@@ -528,7 +505,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li></ul>
     </div>
   </div>
 
@@ -536,9 +513,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/12/28/进击的前端路由/">进击的前端路由</a>
+          </li>
         
           <li>
             <a href="/2016/11/12/对js的链表操作/">对js的链表操作</a>
@@ -556,10 +537,6 @@
             <a href="/2016/11/04/珠宝问题/">珠宝问题</a>
           </li>
         
-          <li>
-            <a href="/2016/11/02/蛇形矩陣/">蛇形矩陣</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -573,7 +550,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 John Doe<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
